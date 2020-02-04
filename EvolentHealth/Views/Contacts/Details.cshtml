@@ -1,0 +1,12 @@
+﻿@model EvolentHealth.Models.Contact
+@{
+    ViewBag.Title = Model.FirstName;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.FirstName  @Model.LastName</h2>
+<h4>Phone Number: @Model.PhoneNumber</h4>
+<h4>Email Addres: @Model.Email</h4>
+<h4>Status: @Model.Status</h4>
+
+

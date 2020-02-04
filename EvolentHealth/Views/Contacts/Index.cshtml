@@ -1,0 +1,43 @@
+﻿@model IEnumerable<EvolentHealth.Models.Contact>
+@{
+    ViewBag.Title = "Contacts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+
+<p>
+    @Html.ActionLink("Add New Contact", "New", "Contacts", null, new { @class = "btn btn-primary" })
+</p>
+
+ <h3>  Click on the Contact Name to Edit the full contact details</h3>
+@if (!Model.Any())
+{
+    <p>We don't have any contacts yet.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Contact Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(contact.FirstName, "Edit", "Contacts", new { id = contact.Id }, null)</td>               
+                    <td>@contact.PhoneNumber</td>               
+                    <td>@contact.Email</td>               
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<br />
+
